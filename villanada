@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quién eres?</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; margin-top: 50px;">
+  <h1>¿Quién eres?</h1>
+
+  <select id="nameSelect" style="padding: 8px; font-size: 16px;">
+    <option value="Alber">Alber</option>
+    <option value="Gon">Gon</option>
+    <option value="Manu">Manu</option>
+  </select>
+
+  <br /><br />
+
+  <button onclick="sendWhatsAppMessage()" style="padding: 10px 20px; font-size: 16px; cursor: pointer;">
+    Pulsa aquí
+  </button>
+
+  <script>
+    function sendWhatsAppMessage() {
+      const name = document.getElementById('nameSelect').value;
+      let message = '';
+      let phoneNumber = '';
+
+      switch (name) {
+        case 'Alber':
+          message = 'Pfff he estado dándole vueltas todo el día de hoy y creo que esto no es bueno para ninguno. Antes de hacernos más daño hay que terminar con todo. Sólo te pido que bajes al pilón por última vez.';
+          phoneNumber = '34644776066'; // Número de Alber
+          break;
+        case 'Gon':
+          message = 'Oye que he pensado que era mejor decírtelo. El otro día en Chaman no se qué pasó pero creo que se me lanzó una chica y yo no quería pero creo que me la follé';
+          phoneNumber = '34644338377'; // Número de Gon
+          break;
+        case 'Manu':
+          message = 'Hola, no me he podido aguantar. Ayer soñé contigo. Estabas igual que en primaria, espléndida. Llevo media vida esperándote, quédate conmigo';
+          phoneNumber = '34618614209'; // Número de Manu
+          break;
+      }
+
+      const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>
